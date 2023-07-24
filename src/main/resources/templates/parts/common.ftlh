@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-work macros common
 <#nested>
-
 </body>
 </html>
 </#macro>
