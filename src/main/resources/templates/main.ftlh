@@ -3,6 +3,8 @@
 <@c.page>
 <div>
     <@l.logout />
+    <br>
+    <span><a href="/user">User List</a></span>
 <div>
     <form method="post">
         <input type="text" name="text" placeholder="Input message">
