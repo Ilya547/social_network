@@ -2,7 +2,6 @@
 
 <@c.page>
 User editor
-
     <form action="/user" method="post">
         <input type="text" value="${user.userName}" name="username">
         <#list roles as role>
