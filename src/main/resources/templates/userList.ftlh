@@ -14,7 +14,7 @@
         <#list users as user>
             <tr>
                 <#--        userName!!!! username-->
-            <td>${user.userName!"null or missing"}</td>
+            <td>${user.username!"null or missing"}</td>
             <td><#list user.roles as role>${role}<#sep>, </#list></td>
             <td><a href="/user/${user.id}">edit</a></td>
             </tr>

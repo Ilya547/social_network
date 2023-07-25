@@ -5,7 +5,7 @@
 <#if known>
     <#assign
     user = SPRING_SECURITY_CONTEXT.authentication.principal
-    name = user.getUserName()
+    name = user.getUsername()
     isAdmin = user.isAdmin()
     >
 <#else>
