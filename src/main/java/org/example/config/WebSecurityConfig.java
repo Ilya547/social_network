@@ -25,8 +25,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 //@EnableMethodSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
-//@EnableMethodSecurity(prePostEnabled = prePostEnablefalse, securedEnabled = true, jsr250Enabled = true, proxyTargetClass = true)
 @EnableWebSecurity
 public class WebSecurityConfig {
     @Autowired
@@ -37,7 +35,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         //without auth
-                        .requestMatchers("/", "/registration", "/static/**").permitAll()
+                        .requestMatchers("/", "/registration", "/static/**", "/activate/*").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
