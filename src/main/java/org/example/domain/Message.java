@@ -3,6 +3,7 @@ package org.example.domain;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "message")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,6 +15,7 @@ public class Message {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
+    @Column(name = "file_name")
     private String fileName;
 
     public Message(String text, String tag, User user) {

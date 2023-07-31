@@ -1,0 +1,5 @@
+DROP SEQUENCE IF EXISTS hibernate_sequence;
+DROP SEQUENCE IF EXISTS message_sequence;
+DROP SEQUENCE IF EXISTS usr_seq;
+DROP DATABASE IF EXISTS sweater;
+CREATE DATABASE sweater;
