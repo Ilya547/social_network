@@ -1,6 +1,8 @@
 package org.example.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,14 +12,23 @@ import java.util.Set;
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
+
+    public static final int START_SEQ = 100000;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "usr_seq", sequenceName = "usr_seq", allocationSize = 1, initialValue = START_SEQ)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usr_seq")
     @Column(name = "id", nullable = false)
     private Long id;
-//    @Column(name = "username")
+    @NotBlank(message = "Cannot be empty")
     private String username;
+    @NotBlank(message = "Cannot be empty")
     private String password;
+    @NotBlank(message = "Password confirmation cannot be empty")
+    @Transient
+    private String password2;
     private boolean active;
+    @NotBlank(message = "Cannot be empty")
+    @Email(message = "Email is not correct")
     private String email;
     private String activationCode;
 
@@ -84,6 +95,14 @@ public class User implements UserDetails {
 
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
     }
 
     @Override
